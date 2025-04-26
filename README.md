@@ -33,3 +33,7 @@ my_query_final=(coindf
                 .option("overwriteSchema", "true")
                 .saveAsTable("my_workspacedb.test_schema2.bitcoin_price_historical")
 )
+
+# * questions1_to_7_using_databricks/question7_databricks.ipynb
+1.- This step is to create the moving average on the price by calculating the average over a window of 5 days.
+
