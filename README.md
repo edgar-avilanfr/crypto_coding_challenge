@@ -76,7 +76,7 @@ I added a longer term moving average of 20 days in order to see a buy/ sell stra
 ## Scalability plan using GCP and Airflow:
 /scalability_plan_multiple_coins/
 
-1.- In order to provide a near-real time data loading from the API, I see it almost gets updated each hour, so includying a pipeline that would run each hour in Airflow is a really good option since you have a lot of control under failed batches and a good logging system in order to trouble shoot your process.
+1.- In order to provide a near-real time data loading from the API, I see the API gets updated each hour, so includying a pipeline that would run each hour in Airflow is a really good option since you have a lot of control under failed batches and a good logging system in order to trouble shoot your process.
 
 2.- Under provided folder you will find the whole airflow scripts, containing the dags folder, yaml file and connection keys (hidden) to GCP account
 
@@ -92,4 +92,9 @@ INSERT (date, price, ID )
 VALUES (S.date, S.price, S.ID)
 ```
 
-5.- I didn´t include the last step but the goal is to use the same function I developed in last section in order to create the desired moving average proces partitioned by the several tickets
+5.- I didn´t include the last step but the goal is to use the same function I developed in last section in order to create the desired moving average proces partitioned by the several coins
+
+## Simple test
+/simple_unit/test
+
+I included a test in order to check that a certain price is correct for a given date
