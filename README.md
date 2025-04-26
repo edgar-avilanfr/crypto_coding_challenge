@@ -39,4 +39,10 @@ my_query_final=(coindf
 
 # * questions5_7_using_GCP/01_crypto_ingest.py
 1.- I moved the previous code into a python file in order to later use GCP Dataproc, Bigquery, Airflow and Looker.
+
+2.- I order to run these 2 scripts in Dataproc we need:
+- First item
+- First item
+- First item
+
 gggg
