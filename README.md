@@ -5,7 +5,7 @@ This is the result of the coding challenge which builds a data pipeline by retri
 ## Question from 1 to 7 using Databricks:
 In order to be able to use pyspark and save the results in my Unity Catalog, I chose to use it, so the files I attached can be simply uploaded into databicks and be run (we should upload the .dbc files inot your Databricks workspace),  I also included the .ipynb files for you to be able to visualize it.
 
- * questions1_to_7_using_databricks/questions1_to_4.ipynb
+ * /questions1_to_7_using_databricks/questions1_to_4.ipynb
    
 1.- I conected to the CoinGecko API by providing a free tier API, in order to get the list of available coins, we can use:     'https://api.coingecko.com/api/v3/coins/list' API
 
@@ -16,7 +16,7 @@ In order to be able to use pyspark and save the results in my Unity Catalog, I c
   all_coins.where(col('name')=='Bitcoin').select('id').show()
 ```
 
- * questions1_to_7_using_databricks/question_5_6_databricks.ipynb
+ * /questions1_to_7_using_databricks/question_5_6_databricks.ipynb
    
 1.- We can use the 'https://api.coingecko.com/api/v3/coins/{coin}/market_chart/range' API in order to retrieve a range of values
 
@@ -40,7 +40,7 @@ my_query_final=(coindf
 )
 ```
 
- * questions1_to_7_using_databricks/question7_databricks.ipynb
+ * /questions1_to_7_using_databricks/question7_databricks.ipynb
    
 1.- This step is to create the moving average on the price by calculating the average over a window of 5 days.
 
@@ -74,7 +74,7 @@ https://lookerstudio.google.com/u/0/reporting/e2de550a-d233-4c39-a7d8-85d9db33e0
 I added a longer term moving average of 20 days in order to see a buy/ sell strategy, once the small range MA crosses the long one from down to up, it might mean a good BUY opportunity, and it is a SELL signal otherwise. In the chart we see for the period I chose to analyze, we can see the long MA is about to cross the small one, so it is a SELL signal.
 
 ## Scalability plan using GCP and Airflow:
-scalability_plan_multiple_coins
+/scalability_plan_multiple_coins/
 
 1.- In order to provide a near-real time data loading from the API, I see it almost gets updated each hour, so includying a pipeline that would run each hour in Airflow is a really good option since you have a lot of control under failed batches and a good logging system in order to trouble shoot your process.
 
