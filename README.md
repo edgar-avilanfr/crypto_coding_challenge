@@ -6,6 +6,7 @@ This is the result of the coding challenge which builds a data pipeline by retri
 In order to be able to use pyspark and save the results in my Unity Catalog, I chose to use it, so the files I attached can be simply uploaded into databicks and be run (we should upload the .dbc files inot your Databricks workspace),  I also included the .ipynb files for you to be able to visualize it.
 
  * questions1_to_7_using_databricks/questions1_to_4.ipynb
+   
 1.- I conected to the CoinGecko API by providing a free tier API, in order to get the list of available coins, we can use:     'https://api.coingecko.com/api/v3/coins/list' API
 
 2.- 'requests.get' command will connect to the API, and json.dumps will convert it into json format for later to be converted on a spark dataframe
@@ -39,6 +40,7 @@ my_query_final=(coindf
 
 ## Question from 5 to 7 using GCP:
  * questions5_7_using_GCP/01_crypto_ingest.py
+   
 1.- I moved the previous code into a python file in order to later use GCP Dataproc, Bigquery, Airflow and Looker.
 
 2.- I order to run these 2 scripts in Dataproc we need:
