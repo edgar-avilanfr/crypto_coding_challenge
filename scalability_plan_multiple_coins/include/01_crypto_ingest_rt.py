@@ -4,6 +4,7 @@ import json
 from pyspark.sql.functions import from_unixtime
 from pyspark.sql.functions import col, lit
 from pyspark.sql import SparkSession
+import ast
 
 spark= SparkSession.builder \
     .appName('spark_to_bq') \
@@ -15,7 +16,8 @@ sc.setLogLevel("WARN")
 bucket_name= "training-de-workflows8-bucket"
 bigquery_table= "local_dev.crypto_lz_RT"
 mydate = spark.sparkContext.getConf().get('spark.executorEnv.mydate')
-coin_list = spark.sparkContext.getConf().get('spark.executorEnv.coin_list')
+coin_list1 = spark.sparkContext.getConf().get('spark.executorEnv.coin_list')
+coin_list = ast.literal_eval(coin_list1)
 api_key = spark.sparkContext.getConf().get('spark.executorEnv.api_key')
 
 todays_date = datetime.strptime(mydate, '%Y-%m-%d')
