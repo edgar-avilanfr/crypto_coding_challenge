@@ -1,4 +1,4 @@
-# Crypto pipeline challenge
+# Crypto pipeline challenge using Databricks and GCP
 
 This is the result of the coding challenge which builds a data pipeline by retrieving prices from CoinGecko API.
 
@@ -37,3 +37,6 @@ my_query_final=(coindf
 # * questions1_to_7_using_databricks/question7_databricks.ipynb
 1.- This step is to create the moving average on the price by calculating the average over a window of 5 days.
 
+# * questions5_7_using_GCP/01_crypto_ingest.py
+1.- I moved the previous code into a python file in order to later use GCP Dataproc, Bigquery, Airflow and Looker.
+gggg
