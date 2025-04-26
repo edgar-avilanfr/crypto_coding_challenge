@@ -15,6 +15,7 @@ In order to be able to use pyspark and save the results in my Unity Catalog, I c
   all_coins.where(col('name')=='Bitcoin').select('id').show()
 
  * questions1_to_7_using_databricks/question_5_6_databricks.ipynb
+   
 1.- We can use the 'https://api.coingecko.com/api/v3/coins/{coin}/market_chart/range' API in order to retrieve a range of values
 
 2.- I wrapped it into a function in order to  later use it for retrieving several values.
@@ -36,6 +37,7 @@ my_query_final=(coindf
 )
 
  * questions1_to_7_using_databricks/question7_databricks.ipynb
+   
 1.- This step is to create the moving average on the price by calculating the average over a window of 5 days.
 
 ## Question from 5 to 7 using GCP:
