@@ -3,7 +3,7 @@
 This is the result of the coding challenge which builds a data pipeline by retrieving prices from CoinGecko API.
 
 # Question from 1 to 7 using Databricks:
-In order to be able to use pyspark and save the results in my Unity Catalog, I chose to use it, so the files I attached can be simply uploaded into databicks and be run (We should use the .dbc files), but I also included the .ipynb files for you to be able to visualize it
+In order to be able to use pyspark and save the results in my Unity Catalog, I chose to use it, so the files I attached can be simply uploaded into databicks and be run (we should upload the .dbc files inot your Databricks workspace),  I also included the .ipynb files for you to be able to visualize it.
 
 # * questions1_to_7_using_databricks/questions1_to_4.ipynb
 1.- I conected to the CoinGecko API by providing a free tier API, in order to get the list of available coins, we can use:     'https://api.coingecko.com/api/v3/coins/list' API
@@ -41,8 +41,20 @@ my_query_final=(coindf
 1.- I moved the previous code into a python file in order to later use GCP Dataproc, Bigquery, Airflow and Looker.
 
 2.- I order to run these 2 scripts in Dataproc we need:
-- First item
-- First item
-- First item
+- GCP Account
+- A Cloud Storage bucket in order to store your .py files
+- Dataproc API enabled
 
-gggg
+3.- Simple run the terminal to commands:
+- Create a Dataproc cluster (it contains spark)
+```bash
+gcloud dataproc clusters create cluster-smallxs2 --enable-component-gateway --region us-central1 --zone us-central1-a --single-node --master-machine-type n2-standard-8 --master-boot-disk-size 37 --image-version 2.2-debian12 --project developer3-457903 --delete-max-idle t6m --public-ip-address
+```
+- Submit a job
+```bash
+gcloud dataproc jobs submit pyspark --cluster=cluster-smallxs2 --region=us-central1 gs://training-de-workflows8-bucket/crypto_coins_code/01_crypto_ingest.py
+```
+- Submit second job to calculate moving average
+```bash
+gcloud dataproc jobs submit pyspark --cluster=cluster-smallxs2 --region=us-central1 gs://training-de-workflows8-bucket/crypto_coins_code/02_crypto_transform_1.py
+```
