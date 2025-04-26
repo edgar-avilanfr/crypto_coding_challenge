@@ -12,7 +12,7 @@ In order to be able to use pyspark and save the results in my Unity Catalog, I c
 2.- 'requests.get' command will connect to the API, and json.dumps will convert it into json format for later to be converted on a spark dataframe
 
 3.- After displaying the results, we can check out dataframe by applying a where function in order to get the Bitcoin id:
-```python
+```
   all_coins.where(col('name')=='Bitcoin').select('id').show()
 ```
 
