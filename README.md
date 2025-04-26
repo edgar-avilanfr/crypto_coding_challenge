@@ -72,3 +72,24 @@ gcloud dataproc jobs submit pyspark --cluster=cluster-smallxs2 --region=us-centr
 https://lookerstudio.google.com/u/0/reporting/e2de550a-d233-4c39-a7d8-85d9db33e0d2/page/tEnnC
 
 I added a longer term moving average of 20 days in order to see a buy/ sell strategy, once the small range MA crosses the long one from down to up, it might mean a good BUY opportunity, and it is a SELL signal otherwise. In the chart we see for the period I chose to analyze, we can see the long MA is about to cross the small one, so it is a SELL signal.
+
+## Scalability plan using GCP and Airflow:
+scalability_plan_multiple_coins
+
+1.- In order to provide a near-real time data loading from the API, I see it almost gets updated each hour, so includying a pipeline that would run each hour in Airflow is a really good option since you have a lot of control under failed batches and a good logging system in order to trouble shoot your process.
+
+2.- Under provided folder you will find the whole airflow scripts, containing the dags folder, yaml file and connection keys (hidden) to GCP account
+
+3.- The pipeline will run and retrieve the data from this day, and 2 days before (hourly) for a given list of tickets (see the .env file)
+
+4.- It will load to a landing zone and from there it will UPSERT not existing records into the warehouse table with below block of code
+```
+MERGE INTO developer3-457903.local_dev.crypto_lz_dwh AS T
+USING developer3-457903.local_dev.crypto_lz_RT AS S
+ON T.DATE = S.DATE AND T.ID = S.ID
+WHEN NOT MATCHED THEN
+INSERT (date, price, ID )
+VALUES (S.date, S.price, S.ID)
+```
+
+5.- I didn´t include the last step but the goal is to use the same function I developed in last section in order to create the desired moving average proces partitioned by the several tickets
