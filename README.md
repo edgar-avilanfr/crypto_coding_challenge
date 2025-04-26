@@ -67,3 +67,8 @@ gcloud dataproc jobs submit pyspark --cluster=cluster-smallxs2 --region=us-centr
 ```bash
 gcloud dataproc jobs submit pyspark --cluster=cluster-smallxs2 --region=us-central1 gs://training-de-workflows8-bucket/crypto_coins_code/02_crypto_transform_1.py
 ```
+## Price Chart Looker:
+1.- Once I have the data in BigQuery, I can easily create time series charts.
+https://lookerstudio.google.com/u/0/reporting/e2de550a-d233-4c39-a7d8-85d9db33e0d2/page/tEnnC
+
+I added a longer term moving average of 20 days in order to see a buy/ sell strategy, once the small range MA crosses the long one from down to up, it might mean a good BUY opportunity, and it is a SELL signal otherwise. In the chart we see for the period I chose to analyze, we can see the long MA is about to cross the small one, so it is a SELL signal.
