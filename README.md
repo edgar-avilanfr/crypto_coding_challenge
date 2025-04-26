@@ -21,7 +21,9 @@ In order to be able to use pyspark and save the results in my Unity Catalog, I c
 Note: I can only retrieve data from the past 360 days, so I chose a time under this range
 
 3.- In this case we just call the function with the params you want and it will take care of the Date encoding:
+
 coindf=get_bitcoin_price_history_range('2024-06-01', '2024-10-01','bitcoin', 'CG-HwZEyrLTyMJR2hhdmCvxFurs')
+
 4.- Last step is to save it under you Unity Catalog by running the last piece:
 
 my_query_final=(coindf
